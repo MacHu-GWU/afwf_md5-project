@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Disk cache for Alfred Workflow.
-"""
-
 from diskcache import Cache
+from .paths import path_enum
 
-from .paths import dir_cache
-
-cache = Cache(dir_cache.abspath)
+cache = Cache(str(path_enum.dir_cache))
