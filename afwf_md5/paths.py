@@ -1,35 +1,38 @@
 # -*- coding: utf-8 -*-
 
-from pathlib_mate import Path
+from pathlib import Path
+from functools import cached_property
 
-dir_python_lib = Path.dir_here(__file__)
-dir_project_root = dir_python_lib.parent
+_dir_here = Path(__file__).absolute().parent
+PACKAGE_NAME = _dir_here.name
 
-PACKAGE_NAME = dir_python_lib.basename
 
-# ------------------------------------------------------------------------------
-# Alfred Related
-# ------------------------------------------------------------------------------
-dir_home = Path.home()
-dir_project_home = dir_home / ".alfred-afwf" / PACKAGE_NAME
-dir_project_home.mkdir_if_not_exists()
+class PathEnum:
+    dir_project_root = _dir_here.parent
+    dir_venv = dir_project_root / ".venv"
+    dir_venv_bin = dir_venv / "bin"
+    path_venv_bin_pytest = dir_venv_bin / "pytest"
+    dir_htmlcov = dir_project_root / "htmlcov"
+    path_cov_index_html = dir_htmlcov / "index.html"
+    dir_unit_test = dir_project_root / "tests"
 
-dir_cache = dir_project_home / ".cache"
-path_settings_sqlite = dir_project_home / "settings.sqlite"
+    @cached_property
+    def dir_home(self) -> Path:
+        return Path.home()
 
-path_config_json = dir_project_home / "config.json"
+    @cached_property
+    def dir_project_home(self) -> Path:
+        p = self.dir_home / ".alfred-afwf" / PACKAGE_NAME
+        p.mkdir(parents=True, exist_ok=True)
+        return p
 
-# ------------------------------------------------------------------------------
-# Virtual Environment Related
-# ------------------------------------------------------------------------------
-dir_venv = dir_project_root / ".venv"
-dir_venv_bin = dir_venv / "bin"
+    @cached_property
+    def dir_cache(self) -> Path:
+        return self.dir_project_home / ".cache"
 
-# virtualenv executable paths
-bin_pytest = dir_venv_bin / "pytest"
+    @cached_property
+    def path_error_log(self) -> Path:
+        return self.dir_project_home / "error.log"
 
-# test related
-dir_htmlcov = dir_project_root / "htmlcov"
-path_cov_index_html = dir_htmlcov / "index.html"
-dir_unit_test = dir_project_root / "tests"
-dir_int_test = dir_project_root / "tests_int"
+
+path_enum = PathEnum()
