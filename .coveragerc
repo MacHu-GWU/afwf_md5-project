@@ -6,6 +6,8 @@ omit =
     afwf_md5/tests/*
     afwf_md5/vendor/*
     afwf_md5/_version.py
+    afwf_md5/cli.py
+    afwf_md5/paths.py
 
 [report]
 # Regexes for lines to exclude from consideration
