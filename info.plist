@@ -55,7 +55,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Get File Checksum</string>
+	<string>afwf_md5</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -86,7 +86,8 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>~/.pyenv/shims/python3.11 main.py 'md5 {query}'</string>
+				<string>~/.local/bin/uvx --from "afwf-md5==0.1.2" afwf-md5 md5 --query '{query}'
+# ~/Documents/GitHub/afwf_md5-project/.venv/bin/afwf-md5 md5 --query '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -154,13 +155,14 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>~/.pyenv/shims/python3.11 main.py 'sha256 {query}'</string>
+				<string>~/.local/bin/uvx --from "afwf-md5==0.1.2" afwf-md5 sha256 --query '{query}'
+# ~/Documents/GitHub/afwf_md5-project/.venv/bin/afwf-md5 sha256 --query '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Get File `md5` Check Sum</string>
+				<string>Get File `sha256` Check Sum</string>
 				<key>title</key>
 				<string>sha256</string>
 				<key>type</key>
@@ -203,13 +205,14 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>~/.pyenv/shims/python3.11 main.py 'sha512 {query}'</string>
+				<string>~/.local/bin/uvx --from "afwf-md5==0.1.2" afwf-md5 sha512 --query '{query}'
+# ~/Documents/GitHub/afwf_md5-project/.venv/bin/afwf-md5 sha512 --query '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Get File `md5` Check Sum</string>
+				<string>Get File `sha512` Check Sum</string>
 				<key>title</key>
 				<string>sha512</string>
 				<key>type</key>
@@ -226,7 +229,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>https://github.com/MacHu-GWU/afwf_md5-project</string>
 	<key>uidata</key>
 	<dict>
 		<key>17D3F1ED-4F77-4B68-B1EF-2AF3391450D9</key>
@@ -260,6 +263,10 @@
 	</dict>
 	<key>userconfigurationconfig</key>
 	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>0.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/MacHu-GWU/afwf_md5-project</string>
 </dict>
